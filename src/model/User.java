@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * It's a class that represents a user
+ */
 public class User {
     private String nick;
 
