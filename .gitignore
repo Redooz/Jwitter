@@ -18,3 +18,5 @@ nb-configuration.xml
 # file: ~/.gitignore_global
 .DS_Store
 .idea
+*.iml
+*.mf
