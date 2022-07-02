@@ -2,6 +2,9 @@ package model;
 
 import java.util.Calendar;
 
+/**
+ * A Tweet is a message that has an author and a text
+ */
 public class Tweet {
     private User author;
     private String text;
@@ -22,12 +25,12 @@ public class Tweet {
         int day,month,year,hour,minute;
 
         day = date.get(Calendar.DAY_OF_MONTH);
-        month = date.get((Calendar.MONTH)+1);
+        month = date.get((Calendar.MONTH));
         year = date.get(Calendar.YEAR);
         hour = date.get(Calendar.HOUR_OF_DAY);
         minute = date.get(Calendar.MINUTE);
 
-        return day+"/"+month+"/"+year+" "+hour+":"+minute;
+        return day+"/"+(month+1)+"/"+year+" "+hour+":"+minute;
     }
 
     public User getAuthor() {
