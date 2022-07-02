@@ -16,7 +16,7 @@ public class TweetList {
     public String showList(){
         StringBuilder info = new StringBuilder();
         for (Tweet tweet : tweetList) {
-            info.append(tweet.toString()).append("\n");
+            info.append(tweet.toString()).append("\n\n");
         }
         return info.toString();
     }
