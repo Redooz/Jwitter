@@ -4,7 +4,8 @@ import javax.swing.*;
 
 public class SelectTweet extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton selectBtn;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JButton editBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> tweetsJlist;
     // End of variables declaration//GEN-END:variables
@@ -18,14 +19,17 @@ public class SelectTweet extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tweetsJlist = new javax.swing.JList<>();
-        selectBtn = new javax.swing.JButton();
+        editBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tweetsJlist.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tweetsJlist);
 
-        selectBtn.setText("Edit");
+        editBtn.setText("Edit");
+
+        deleteBtn.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -35,19 +39,23 @@ public class SelectTweet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(selectBtn)
-                .addGap(170, 170, 170))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(editBtn)
+                .addGap(48, 48, 48)
+                .addComponent(deleteBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(selectBtn)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editBtn)
+                    .addComponent(deleteBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -61,12 +69,19 @@ public class SelectTweet extends javax.swing.JFrame {
         this.tweetsJlist = tweetsJlist;
     }
 
-    public JButton getSelectBtn() {
-        return selectBtn;
+    public JButton getEditBtn() {
+        return editBtn;
     }
 
-    public void setSelectBtn(JButton selectBtn) {
-        this.selectBtn = selectBtn;
+    public void setEditBtn(JButton editBtn) {
+        this.editBtn = editBtn;
     }
-    
+
+    public JButton getDeleteBtn() {
+        return deleteBtn;
+    }
+
+    public void setDeleteBtn(JButton deleteBtn) {
+        this.deleteBtn = deleteBtn;
+    }
 }
