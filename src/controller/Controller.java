@@ -6,7 +6,6 @@ import model.TweetList;
 import model.User;
 import view.EditTweet;
 import view.Home;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -74,7 +73,9 @@ public class Controller implements ActionListener {
             newTweet.setAuthor(new User(author));
             tweets.getTweetList().add(newTweet);
         }
+
         home.getWriteTweet().setText("");
+
     }
 
     public void newTweet(){
