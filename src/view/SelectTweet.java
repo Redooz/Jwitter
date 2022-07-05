@@ -1,23 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import javax.swing.*;
 
-/**
- *
- * @author yohan
- */
-public class EditTweet extends javax.swing.JFrame {
+public class SelectTweet extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton editBtn;
+    private javax.swing.JButton selectBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> tweetsJlist;
     // End of variables declaration//GEN-END:variables
-    public EditTweet() {
+    public SelectTweet() {
         initComponents();
     }
 
@@ -27,14 +18,14 @@ public class EditTweet extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tweetsJlist = new javax.swing.JList<>();
-        editBtn = new javax.swing.JButton();
+        selectBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tweetsJlist.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tweetsJlist);
 
-        editBtn.setText("Edit");
+        selectBtn.setText("Edit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,7 +37,7 @@ public class EditTweet extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editBtn)
+                .addComponent(selectBtn)
                 .addGap(170, 170, 170))
         );
         layout.setVerticalGroup(
@@ -55,7 +46,7 @@ public class EditTweet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editBtn)
+                .addComponent(selectBtn)
                 .addContainerGap())
         );
 
@@ -70,12 +61,12 @@ public class EditTweet extends javax.swing.JFrame {
         this.tweetsJlist = tweetsJlist;
     }
 
-    public JButton getEditBtn() {
-        return editBtn;
+    public JButton getSelectBtn() {
+        return selectBtn;
     }
 
-    public void setEditBtn(JButton editBtn) {
-        this.editBtn = editBtn;
+    public void setSelectBtn(JButton selectBtn) {
+        this.selectBtn = selectBtn;
     }
     
 }
