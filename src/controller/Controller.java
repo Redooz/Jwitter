@@ -149,11 +149,13 @@ public class Controller implements ActionListener {
 
         if (returnValue == JOptionPane.YES_OPTION) {
             tweets.getTweetList().remove(selectedTweet);
+
             if(tweets.getTweetList().isEmpty()){
                 selectTweet.dispose();
             } else {
                 showSelectTweetGUI();
             }
+            
         }
     }
 
