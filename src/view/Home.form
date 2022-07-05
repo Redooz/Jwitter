@@ -47,9 +47,9 @@
                               <Component id="toolTweetBtn" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="editTweetBtn" max="32767" attributes="0"/>
+                              <Component id="editDeleteTweetBtn" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -77,7 +77,7 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="editTweetBtn" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="editDeleteTweetBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="toolTweetBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -138,12 +138,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="editTweetBtn">
+    <Component class="javax.swing.JButton" name="editDeleteTweetBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Edit Tweet"/>
+        <Property name="text" type="java.lang.String" value="Edit or Delete Tweet"/>
       </Properties>
     </Component>
   </SubComponents>
