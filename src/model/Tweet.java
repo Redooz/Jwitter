@@ -8,16 +8,18 @@ import java.util.Calendar;
 public class Tweet {
     private User author;
     private String text;
+    private int likes;
 
-
-    public Tweet(User author, String text) {
+    public Tweet(User author, String text, int likes) {
         this.author = author;
         this.text = text;
+        this.likes = likes;
     }
 
     public Tweet() {
         author = new User();
         text = "";
+        likes = 0;
     }
 
     public String getTweetDate(){
@@ -49,11 +51,17 @@ public class Tweet {
         this.text = text;
     }
 
+    public int getLikes() {
+        return likes;
+    }
 
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
 
     @Override
     public String toString() {
-        return  author + "\t" +  getTweetDate()  + "\n"+ text;
+        return  author + "\t" +  getTweetDate()  + "\n"+ text + "\t❤: " + likes;
     }
 }
 
