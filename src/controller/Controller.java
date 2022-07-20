@@ -7,6 +7,8 @@ import model.User;
 import view.LikeTweet;
 import view.SelectTweet;
 import view.Home;
+import view.TweetReplies;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,12 +19,14 @@ public class Controller implements ActionListener {
     private Home home;
     private SelectTweet selectTweetGUI;
     private LikeTweet likeTweetGUI;
+    private TweetReplies tweetRepliesGUI;
 
     public Controller() {
         tweets = new TweetList();
         home = new Home();
         selectTweetGUI = new SelectTweet();
         likeTweetGUI = new LikeTweet();
+        tweetRepliesGUI = new TweetReplies();
     }
 
     public void init(){
@@ -34,11 +38,15 @@ public class Controller implements ActionListener {
         home.getUserBtn().addActionListener(this);
         home.getEditDeleteTweetBtn().addActionListener(this);
         home.getLikeTweetBtn().addActionListener(this);
+        home.getTweetRepliesBtn().addActionListener(this);
 
         selectTweetGUI.getEditBtn().addActionListener(this);
         selectTweetGUI.getDeleteBtn().addActionListener(this);
 
         likeTweetGUI.getLikeBtn().addActionListener(this);
+
+        tweetRepliesGUI.getWatchRepliesBtn().addActionListener(this);
+        tweetRepliesGUI.getReplyBtn().addActionListener(this);
 
         home.setLocationRelativeTo(null);
         home.setVisible(true);
@@ -62,16 +70,28 @@ public class Controller implements ActionListener {
             editTweet();
         }
 
-        if (e.getSource().equals(selectTweetGUI.getDeleteBtn())){
+        if (e.getSource().equals(selectTweetGUI.getDeleteBtn())){ //Delete a tweet
             deleteTweet();
         }
 
-        if(e.getSource().equals(home.getLikeTweetBtn())){
+        if(e.getSource().equals(home.getLikeTweetBtn())){ //Show Like a tweet GUI
             showLikeTweetGUI();
         }
 
-        if(e.getSource().equals(likeTweetGUI.getLikeBtn())){
+        if(e.getSource().equals(likeTweetGUI.getLikeBtn())){ //Like a tweet
             likeTweet();
+        }
+
+        if(e.getSource().equals(home.getTweetRepliesBtn())){ //Show watch replies GUI
+            showTweetRepliesGUI();
+        }
+
+        if(e.getSource().equals(tweetRepliesGUI.getWatchRepliesBtn())){ //Watch replies btn
+            showReplies();
+        }
+
+        if(e.getSource().equals(tweetRepliesGUI.getReplyBtn())){ //Reply a tweer btn
+            replyTweet();
         }
 
         home.getTweetsTxtArea().setText(tweets.showList());
@@ -207,6 +227,73 @@ public class Controller implements ActionListener {
         tweets.getTweetList().get(selectedTweet).setLikes((currentLikes+1));
         showLikeTweetGUI();
     }
+
+    public void showTweetRepliesGUI(){
+        if(tweets.getTweetList().isEmpty()){
+            JOptionPane.showMessageDialog(home, "There aren't tweets available", "Show replies error", JOptionPane.WARNING_MESSAGE);
+        } else {
+            DefaultListModel<String> model = new DefaultListModel<>();
+            /*  I have access to JList model using my own model, so i can add elements to the JList
+             *   In this case i will add each tweet into the JList  */
+            tweetRepliesGUI.getTweetsJlist().setModel(model);
+
+            for (int i = 0; i < tweets.getTweetList().size(); i++) {
+                model.addElement(tweets.getTweetList().get(i).toString());
+            }
+
+            tweetRepliesGUI.setLocationRelativeTo(null);
+            tweetRepliesGUI.setVisible(true);
+        }
+
+    }
+
+    public void showReplies(){
+        int selectedTweetIndex = 0;
+
+        for (int i = 0; i < tweets.getTweetList().size(); i++) {
+            //Finding the selected tweet into the tweet list
+            if (tweetRepliesGUI.getTweetsJlist().getSelectedValue().equals(tweets.getTweetList().get(i).toString())){
+                selectedTweetIndex = i;
+            }
+        }
+
+        Tweet selectedTweet = tweets.getTweetList().get(selectedTweetIndex);
+
+        JOptionPane.showMessageDialog(tweetRepliesGUI,selectedTweet.getReplies().showList(),"Replies",JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public void replyTweet(){
+        int selectedTweetIndex = 0;
+        String author, text;
+
+        for (int i = 0; i < tweets.getTweetList().size(); i++) {
+            //Finding the selected tweet into the tweet list
+            if (tweetRepliesGUI.getTweetsJlist().getSelectedValue().equals(tweets.getTweetList().get(i).toString())){
+                selectedTweetIndex = i;
+            }
+        }
+
+        Tweet selectedTweet = tweets.getTweetList().get(selectedTweetIndex);
+
+        author = JOptionPane.showInputDialog(home,"Type your nickname:","Your Account's name",JOptionPane.PLAIN_MESSAGE);
+        text = JOptionPane.showInputDialog(home,"What's happening?","Tweet",JOptionPane.PLAIN_MESSAGE);
+
+        if (author.isEmpty() || text.isEmpty()){
+            JOptionPane.showMessageDialog(home, "There's an error in your nickname or in your tweet reply", "Reply error", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Tweet reply = new Tweet();
+
+            reply.setAuthor(new User(author));
+            reply .setText(text);
+
+            selectedTweet.getReplies().getTweetList().add(reply);
+
+            showTweetRepliesGUI();
+        }
+
+    }
+
+
     public TweetList getTweets() {
         return tweets;
     }

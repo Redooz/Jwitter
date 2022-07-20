@@ -1,19 +1,22 @@
 package view;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JList;
+
 
 /**
  *
  * @author yohan
  */
-public class LikeTweet extends javax.swing.JFrame {
+public class TweetReplies extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton likeBtn;
+    private javax.swing.JButton replyBtn;
     private javax.swing.JList<String> tweetsJlist;
+    private javax.swing.JButton watchRepliesBtn;
     // End of variables declaration//GEN-END:variables
 
-    public LikeTweet() {
+    public TweetReplies() {
         initComponents();
     }
 
@@ -23,7 +26,8 @@ public class LikeTweet extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tweetsJlist = new javax.swing.JList<>();
-        likeBtn = new javax.swing.JButton();
+        watchRepliesBtn = new javax.swing.JButton();
+        replyBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -31,7 +35,9 @@ public class LikeTweet extends javax.swing.JFrame {
         tweetsJlist.setLayoutOrientation(javax.swing.JList.VERTICAL_WRAP);
         jScrollPane1.setViewportView(tweetsJlist);
 
-        likeBtn.setText("Like");
+        watchRepliesBtn.setText("Watch Replies");
+
+        replyBtn.setText("Reply");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,29 +49,25 @@ public class LikeTweet extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(likeBtn)
-                .addGap(173, 173, 173))
+                .addComponent(replyBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(watchRepliesBtn)
+                .addGap(116, 116, 116))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(likeBtn)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(watchRepliesBtn)
+                    .addComponent(replyBtn))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public JButton getLikeBtn() {
-        return likeBtn;
-    }
-
-    public void setLikeBtn(JButton likeBtn) {
-        this.likeBtn = likeBtn;
-    }
 
     public JList<String> getTweetsJlist() {
         return tweetsJlist;
@@ -74,4 +76,22 @@ public class LikeTweet extends javax.swing.JFrame {
     public void setTweetsJlist(JList<String> tweetsJlist) {
         this.tweetsJlist = tweetsJlist;
     }
+
+    public JButton getWatchRepliesBtn() {
+        return watchRepliesBtn;
+    }
+
+    public void setWatchRepliesBtn(JButton watchRepliesBtn) {
+        this.watchRepliesBtn = watchRepliesBtn;
+    }
+
+    public JButton getReplyBtn() {
+        return replyBtn;
+    }
+
+    public void setReplyBtn(JButton replyBtn) {
+        this.replyBtn = replyBtn;
+    }
+    
+    
 }

@@ -10,6 +10,7 @@ public class Home extends JFrame {
     private javax.swing.JLabel nicknameLbl;
     private javax.swing.JButton toolTweetBtn;
     private javax.swing.JButton tweetBtn;
+    private javax.swing.JButton tweetRepliesBtn;
     private javax.swing.JTextArea tweetsTxtArea;
     private javax.swing.JButton userBtn;
     private javax.swing.JTextField writeTweet;
@@ -32,6 +33,7 @@ public class Home extends JFrame {
         userBtn = new javax.swing.JButton();
         editDeleteTweetBtn = new javax.swing.JButton();
         likeTweetBtn = new javax.swing.JButton();
+        tweetRepliesBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -56,6 +58,9 @@ public class Home extends JFrame {
 
         likeTweetBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         likeTweetBtn.setText("Like a Tweet");
+
+        tweetRepliesBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tweetRepliesBtn.setText("Tweet Replies");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,7 +89,8 @@ public class Home extends JFrame {
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(likeTweetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(editDeleteTweetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(editDeleteTweetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tweetRepliesBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
@@ -104,6 +110,8 @@ public class Home extends JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tweetRepliesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(likeTweetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(editDeleteTweetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,6 +197,14 @@ public class Home extends JFrame {
 
     public void setLikeTweetBtn(JButton likeTweetBtn) {
         this.likeTweetBtn = likeTweetBtn;
+    }
+
+    public JButton getTweetRepliesBtn() {
+        return tweetRepliesBtn;
+    }
+
+    public void setTweetRepliesBtn(JButton tweetRepliesBtn) {
+        this.tweetRepliesBtn = tweetRepliesBtn;
     }
     
 }
