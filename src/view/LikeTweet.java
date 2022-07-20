@@ -11,14 +11,14 @@ import javax.swing.*;
  *
  * @author yohan
  */
-public class LikeTweet extends javax.swing.JFrame {
+public class SelectTweetOneBotton extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton likeBtn;
     private javax.swing.JList<String> tweetsJlist;
     // End of variables declaration//GEN-END:variables
 
-    public LikeTweet() {
+    public SelectTweetOneBotton() {
         initComponents();
     }
 
@@ -36,7 +36,7 @@ public class LikeTweet extends javax.swing.JFrame {
         tweetsJlist.setLayoutOrientation(javax.swing.JList.VERTICAL_WRAP);
         jScrollPane1.setViewportView(tweetsJlist);
 
-        likeBtn.setText("Like");
+        likeBtn.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

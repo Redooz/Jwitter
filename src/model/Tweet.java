@@ -9,17 +9,20 @@ public class Tweet {
     private User author;
     private String text;
     private int likes;
+    private TweetList replies;
 
-    public Tweet(User author, String text, int likes) {
+    public Tweet(User author, String text, int likes, TweetList replies) {
         this.author = author;
         this.text = text;
         this.likes = likes;
+        this.replies = replies;
     }
 
     public Tweet() {
         author = new User();
         text = "";
         likes = 0;
+        replies = new TweetList();
     }
 
     public String getTweetDate(){
@@ -59,9 +62,17 @@ public class Tweet {
         this.likes = likes;
     }
 
+    public TweetList getReplies() {
+        return replies;
+    }
+
+    public void setReplies(TweetList replies) {
+        this.replies = replies;
+    }
+
     @Override
     public String toString() {
-        return  author + "\t" +  getTweetDate()  + "\n"+ text + "\t❤: " + likes;
+        return  author + "\t" +  getTweetDate()  + "\n"+ text + "\t❤: " + likes + " Replies: " + replies.getTweetList().size();
     }
 }
 

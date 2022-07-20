@@ -71,7 +71,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="likeBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Like"/>
+        <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
     </Component>
   </SubComponents>
